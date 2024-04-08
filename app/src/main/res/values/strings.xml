@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">tuSalud</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Las vacunas</string>
+    <string name="nav_header_subtitle">grupo9@poligran.edu.co</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Salir</string>
+
+    <string name="menu_home">Tu perfil</string>
+    <string name="menu_gallery">Tus vacunas</string>
+    <string name="menu_slideshow">La vacunación</string>
+</resources>
