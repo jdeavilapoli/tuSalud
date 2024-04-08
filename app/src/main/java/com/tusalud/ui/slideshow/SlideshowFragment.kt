@@ -11,12 +11,10 @@ import android.webkit.WebViewClient
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.tusalud.R
 import com.tusalud.databinding.FragmentSlideshowBinding
 
 
 class SlideshowFragment : Fragment() {
-    private var webView: WebView? = null
     private var _binding: FragmentSlideshowBinding? = null
 
     // This property is only valid between onCreateView and
@@ -32,7 +30,7 @@ class SlideshowFragment : Fragment() {
 
         val slideshowViewModel =
             ViewModelProvider(this).get(SlideshowViewModel::class.java)
-        val video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/jneZui11gnk\" title=\"¿Por qué es importante vacunarse? Cinco claves que debes conocer - #VacunasyFarmacia\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+        val video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/jneZui11gnk?si=9XJI3KoAuTD2U4o4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
 
         _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
 
@@ -42,6 +40,8 @@ class SlideshowFragment : Fragment() {
         webview.loadData(video,"text/html","utf-8")
         webview.settings.javaScriptEnabled = true
         webview.webChromeClient = WebChromeClient()
+        webview.webViewClient = WebViewClient()
+
         val root: View = binding.root
 
         slideshowViewModel.text.observe(viewLifecycleOwner) {
