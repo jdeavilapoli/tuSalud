@@ -1,12 +1,15 @@
 package com.tusalud.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.tusalud.UrlActivity
 import com.tusalud.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -31,6 +34,13 @@ class HomeFragment : Fragment() {
         val textView: TextView = binding.textView3
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
+        }
+
+        val button: Button = binding.button
+        button.setOnClickListener {
+            // Abrir Activity UrlActivity
+            val intent = Intent(activity, UrlActivity::class.java)
+            startActivity(intent)
         }
         return root
     }
