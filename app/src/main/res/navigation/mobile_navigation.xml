@@ -31,6 +31,6 @@
     <fragment
         android:id="@+id/nav_principal"
         android:name="com.tusalud.ui.principal.PrincipalFragment"
-        android:label="@string/menu_principal"
+        android:label="Perfil"
         tools:layout="@layout/fragment_principal" />
 </navigation>

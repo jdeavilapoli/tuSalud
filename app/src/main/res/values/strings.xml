@@ -8,7 +8,8 @@
     <string name="action_settings">Salir</string>
 
     <string name="menu_principal">Principal</string>
-    <string name="menu_home">Tu perfil</string>
+    <string name="menu_home">Bienvenido</string>
     <string name="menu_gallery">Tus vacunas</string>
     <string name="menu_slideshow">La vacunación</string>
+    <string name="title_activity_url">UrlActivity</string>
 </resources>
