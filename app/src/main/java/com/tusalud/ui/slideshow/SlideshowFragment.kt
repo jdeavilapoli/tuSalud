@@ -1,16 +1,16 @@
 package com.tusalud.ui.slideshow
 
 import android.annotation.SuppressLint
+import android.media.session.MediaController
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebChromeClient
-import android.webkit.WebView
-import android.webkit.WebViewClient
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.tusalud.R
 import com.tusalud.databinding.FragmentSlideshowBinding
 
 
@@ -30,17 +30,21 @@ class SlideshowFragment : Fragment() {
 
         val slideshowViewModel =
             ViewModelProvider(this).get(SlideshowViewModel::class.java)
-        val video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/jneZui11gnk?si=9XJI3KoAuTD2U4o4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
 
         _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
 
         val textView: TextView = binding.textSlideshow
 
-        val webview: WebView= binding.webView
-        webview.loadData(video,"text/html","utf-8")
-        webview.settings.javaScriptEnabled = true
-        webview.webChromeClient = WebChromeClient()
-        webview.webViewClient = WebViewClient()
+        val mediaController = android.widget.MediaController(requireContext())
+        val videoView =  binding.videoView
+        val videoUri = Uri.parse("android.resource://com.tusalud/raw/" + R.raw.importante_vacunarse)
+        videoView.setVideoURI(videoUri)
+        videoView.setMediaController(mediaController)
+        mediaController.setMediaPlayer(videoView)
+        videoView.keepScreenOn = true
+        videoView.start()
+
+
 
         val root: View = binding.root
 
