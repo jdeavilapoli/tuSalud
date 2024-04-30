@@ -10,7 +10,16 @@
     android:gravity="center"
     android:layout_gravity="center"
     tools:context=".UrlActivity">
-    
+
+    <LinearLayout
+        android:id="@+id/divContentUrl"
+        android:visibility="visible"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="393dp"
@@ -34,7 +43,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="30dp"
         android:layout_height="wrap_content"
-        android:hint="Dirección Web" />
+        android:hint="EPS" />
 
     <Button
         android:id="@+id/btnUrlWeb"
@@ -43,4 +52,20 @@
         android:layout_marginTop="30dp"
         android:textSize="20sp"
         android:text="Dirigirse" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/divWebUrl"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="60dp"
+        android:orientation="vertical">
+
+    <WebView
+        android:id="@+id/webViewUrl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    </LinearLayout>
 </LinearLayout>

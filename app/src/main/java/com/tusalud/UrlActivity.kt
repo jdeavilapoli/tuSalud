@@ -3,8 +3,12 @@ package com.tusalud
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -22,6 +26,12 @@ class UrlActivity : AppCompatActivity() {
         }
         var btnUrlWeb = findViewById<Button>(R.id.btnUrlWeb)
         var txtUrlWeb = findViewById<EditText>(R.id.txtUrlWeb)
+        var divContentUrl = findViewById<LinearLayout>(R.id.divContentUrl)
+        var divWebUrl = findViewById<LinearLayout>(R.id.divWebUrl)
+        var webView = findViewById<WebView>(R.id.webViewUrl)
+
+        webView.settings.javaScriptEnabled = true
+        webView.webViewClient = WebViewClient()
 
         // Asigna un OnClickListener al botón
         btnUrlWeb.setOnClickListener {
@@ -30,10 +40,10 @@ class UrlActivity : AppCompatActivity() {
 
             // Verifica si la URL no está vacía
             if (url.isNotEmpty()) {
-                // Crea un Intent para realizar una búsqueda en Google
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse("https://www.google.com/search?q=$url")
-                startActivity(intent)
+                divContentUrl.visibility = View.GONE
+                divWebUrl.visibility = View.VISIBLE
+
+                webView.loadUrl("https://www.google.com/search?q=" + url)
             }
         }
     }
