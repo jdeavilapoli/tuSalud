@@ -43,7 +43,7 @@ class UrlActivity : AppCompatActivity() {
                 divContentUrl.visibility = View.GONE
                 divWebUrl.visibility = View.VISIBLE
 
-                webView.loadUrl("https://www.google.com/search?q=" + url)
+                webView.loadUrl(url)
             }
         }
     }
